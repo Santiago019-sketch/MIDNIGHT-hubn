@@ -1,41 +1,98 @@
--- Custom GUI for Exploit with Name, Texts, Color, and Toggle Button
+-- Custom GUI for Exploit with better features
 
 local ScreenGui = Instance.new("ScreenGui")
-local TextLabel = Instance.new("TextLabel")
-local UIToggle = Instance.new("TextButton")
+local MainFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local CloseButton = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local OptionsFrame = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local ReviveButton = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local ResurrectButton = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
 
-ScreenGui.Name = "MidnightReviveUI"
+ScreenGui.Name = "MidnightRevive"
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 
-TextLabel.Name = "ReviveText"
-TextLabel.Parent = ScreenGui
-TextLabel.BackgroundTransparency = 1
-TextLabel.Size = UDim2.new(0, 300, 0, 200)
-TextLabel.Text = "Midnight Revive | Exploit\nUse [C] to revive\nand [V] to resurrect!"
-TextLabel.TextColor3 = Color3.new(0, 0, 1)
-TextLabel.TextSize = 24
-TextLabel.TextWrapped = true
-TextLabel.TextXAlignment = Enum.TextXAlignment.Center
-TextLabel.Position = UDim2.new(0.5, -150, 0.5, -100)
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.Active = true
+MainFrame.BackgroundColor3 = Color3.new(0.148941, 0.148941, 0.148941)
+MainFrame.BorderSizePixel = 0
+MainFrame.Size = UDim2.new(0, 250, 0, 175)
 
-UIToggle.Name = "ToggleButton"
-UIToggle.Parent = ScreenGui
-UIToggle.BackgroundTransparency = 0.8
-UIToggle.Size = UDim2.new(0, 50, 0, 30)
-UIToggle.Text = "On"
-UIToggle.TextColor3 = Color3.new(1, 1, 1)
-UIToggle.TextSize = 14
-UIToggle.Position = UDim2.new(0.5, -25, 0.5, -50)
+UICorner.Parent = MainFrame
 
--- Toggle functionality (you can customize this part)
-UIToggle.MouseButton1Click:Connect(function()
-    if UIToggle.Text == "On" then
-        UIToggle.Text = "Off"
-        TextLabel.Visible = false
-    else
-        UIToggle.Text = "On"
-        TextLabel.Visible = true
-    end
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundTransparency = 1
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Midnight Revive"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextSize = 24
+Title.TextXAlignment = Enum.TextXAlignment.Center
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = MainFrame
+CloseButton.BackgroundColor3 = Color3.new(0.247059, 0.247059, 0.247059)
+CloseButton.Position = UDim2.new(0.924, 0, 0, -30)
+CloseButton.Size = UDim2.new(0, 25, 0, 25)
+CloseButton.Font = Enum.Font.SourceSansBold
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.new(1, 1, 1)
+CloseButton.TextSize = 20
+
+UICorner_2.Parent = CloseButton
+
+OptionsFrame.Name = "OptionsFrame"
+OptionsFrame.Parent = MainFrame
+OptionsFrame.Position = UDim2.new(0, 0, 0, 30)
+OptionsFrame.Size = UDim2.new(1, 0, 0, 145)
+
+UICorner_3.Parent = OptionsFrame
+
+ReviveButton.Name = "ReviveButton"
+ReviveButton.Parent = OptionsFrame
+ReviveButton.BackgroundColor3 = Color3.new(0.247059, 0.247059, 0.247059)
+ReviveButton.Position = UDim2.new(0, 0, 0, 10)
+ReviveButton.Size = UDim2.new(1, 0, 0, 65)
+ReviveButton.Font = Enum.Font.SourceSansBold
+ReviveButton.Text = "Revive [C]"
+ReviveButton.TextColor3 = Color3.new(1, 1, 1)
+ReviveButton.TextSize = 24
+
+UICorner_4.Parent = ReviveButton
+
+ResurrectButton.Name = "ResurrectButton"
+ResurrectButton.Parent = OptionsFrame
+ResurrectButton.BackgroundColor3 = Color3.new(0.247059, 0.247059, 0.247059)
+ResurrectButton.Position = UDim2.new(0, 0, 0, 85)
+ResurrectButton.Size = UDim2.new(1, 0, 0, 60)
+ResurrectButton.Font = Enum.Font.SourceSansBold
+ResurrectButton.Text = "Resurrect [V]"
+ResurrectButton.TextColor3 = Color3.new(1, 1, 1)
+ResurrectButton.TextSize = 24
+
+UICorner_5.Parent = ResurrectButton
+
+-- Close button functionality
+CloseButton.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+end)
+
+-- Revive button functionality (you can customize this part)
+ReviveButton.MouseButton1Click:Connect(function()
+    print("Revive button clicked!")
+    -- Add your revive functionality here
+end)
+
+-- Resurrect button functionality (you can customize this part)
+ResurrectButton.MouseButton1Click:Connect(function()
+    print("Resurrect button clicked!")
+    -- Add your resurrect functionality here
 end)
